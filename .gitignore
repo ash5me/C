@@ -1,0 +1,21 @@
+# C build artifacts
+*.exe
+*.out
+*.o
+*.obj
+*.dll
+*.so
+*.dylib
+
+# Debug / IDE files
+.vscode/
+.idea/
+*.iml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local temp files
+*.tmp
+*.log
