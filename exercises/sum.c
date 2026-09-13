@@ -12,7 +12,7 @@ int calculate_sum(const int arr[], int size) {
 
 int main() {
     // array
-    const int arr[] = {5, 2, 9, 1, 7};
+    const int arr[] = {-10, 3, -50, 2};
     const int n = sizeof(arr) / sizeof(arr[0]);
     int summation = calculate_sum(arr,n);
     printf("Here's the sum : %d",summation);
