@@ -1,5 +1,6 @@
 #include <stdio.h>
-
+#ifndef sum_h
+#define sum_h
 //sum
 
 int calculate_sum(const int arr[], int size) {
@@ -10,7 +11,8 @@ int calculate_sum(const int arr[], int size) {
     return sum;
 }
 
-int main() {
+
+int main2() {
     // array
     const int arr[] = {-10, 3, -50, 2};
     const int n = sizeof(arr) / sizeof(arr[0]);
@@ -18,3 +20,4 @@ int main() {
     printf("Here's the sum : %d",summation);
 }
 
+#endif

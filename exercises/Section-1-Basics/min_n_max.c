@@ -1,4 +1,6 @@
 #include <stdio.h>
+#ifndef min_n_max_h
+#define min_n_max_h
 
 // Find min
 int find_min(const int arr[], int size) {
@@ -27,11 +29,14 @@ int find_max(const int arr[], int size) {
     }
     return max;
 }
+
 // Find sum
 // Find avg
-int main() {
+int main1() {
     const int arr [] = {-10, -3, -50, -2};
     const int n = sizeof(arr) / sizeof(arr[0]);
     int max_val = find_max(arr,n);
     printf("Maximum value : %d", max_val);
 }
+
+#endif
