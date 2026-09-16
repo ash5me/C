@@ -15,22 +15,30 @@ int *resize_array(int *arr, int old_size, int new_size) {
     return temp;
 }
 
-int main() {
-    int *numbers = create_array(3);
-    numbers[0] = 10;
-    numbers[1] = 20;
-    numbers[2] = 30;
-
-    numbers = resize_array(numbers, 3, 5);
-
-    numbers[3] = 40;
-    numbers[4] = 50;
-
-    for (int i = 0; i < 5; i++) {
-    printf("%d ", numbers[i]);
-    }
-
-    free(numbers);
-
-    return 0;
+int *create_zeroed_array(int size) {
+    int *arr = calloc(size,sizeof(int));
+    return arr;
 }
+
+int main() {
+    int *numbers = create_zeroed_array(5);
+    for (int i = 0; i < 5; i++) {
+        printf("%d ", numbers[i]);
+    }
+    free(numbers);
+}
+
+// int main() {
+//     int *numbers = create_array(3);
+//     numbers[0] = 10;
+//     numbers[1] = 20;
+//     numbers[2] = 30;
+//     numbers = resize_array(numbers, 3, 5);
+//     numbers[3] = 40;
+//     numbers[4] = 50;
+//     for (int i = 0; i < 5; i++) {
+//     printf("%d ", numbers[i]);
+//     }
+//     free(numbers);
+//     return 0;
+// }
