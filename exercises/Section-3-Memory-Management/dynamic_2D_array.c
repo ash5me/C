@@ -2,6 +2,8 @@
 #include <stdlib.h>
 
 int **create_matrix(int rows, int cols) {
+    // concept : blob:https://gemini.google.com/0e31d1fe-7641-4d93-8921-1977c693e1d0 -> so,basically **int points to the mem.add of *int
+    //allocate row pointers
     int **arr = malloc(rows * sizeof(int *));
     for (int i = 0; i < rows; i++) {
         arr[i] = malloc(cols * sizeof(int));
@@ -9,7 +11,12 @@ int **create_matrix(int rows, int cols) {
     return arr;
 }
 
-void free_matrix(int **matrix, int rows);
+void free_matrix(int **matrix, int rows) {
+    for (int i = 0; i<rows; i++) {
+        free(matrix[i]);
+    }
+    free(matrix);
+}
 
 int main() {
     int **matrix = create_matrix(3, 4);
@@ -30,4 +37,7 @@ int main() {
     matrix[2][3] = 120;
 
     printf("%d\n", matrix[1][2]);  // 70
+
+    free_matrix(matrix,3);
+    matrix = NULL;
 }
