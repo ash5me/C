@@ -8,11 +8,11 @@
 | :-- | :-- | :-- |
 | **Section 1 — Basics** | 5 / 5 exercises | ✅ Complete |
 | **Section 2 — Pointers** | 4 / 4 exercises | ✅ Complete |
-| **Section 3 — Memory Management** | 3 / 3 exercises | ✅ Complete |
-| **Overall** | **12 / 12 exercise files** | **✅ Current scope complete** |
+| **Section 3 — Memory Management** | 7 / 7 exercises | ✅ Complete |
+| **Overall** | **16 / 16 exercise files** | **✅ Current scope complete** |
 
 ```text
-Progress: [████████████████████] 12 / 12
+Progress: [████████████████████] 16 / 16
 ```
 
 ## Learning Path
@@ -46,9 +46,15 @@ Introduces heap allocation and responsible cleanup with the C standard library.
 
 | File | Focus |
 | :-- | :-- |
+| `dangling_pointer.c` | Demonstrates why a pointer must not be dereferenced after its allocation has been released. |
+| `double_free.c` | Explores use-after-free behavior and includes a commented double-free example for discussion. |
+| `dynamic_2D_array.c` | Allocates, uses, and releases a two-dimensional integer matrix through an array of row pointers. |
 | `dynamic_array.c` | Allocates an integer array with `malloc` and releases it with `free`. |
 | `dynamic_memory.c` | Allocates a single integer through a pointer-to-pointer parameter. |
+| `memory_leak.c` | Illustrates a memory leak caused by an omitted `free` call. |
 | `resize_dynamic_array.c` | Demonstrates `malloc`, `realloc`, `calloc`, and `free`. |
+
+> **Safety note:** `dangling_pointer.c`, `double_free.c`, and `memory_leak.c` are learning examples that intentionally show unsafe memory-management patterns. Read and modify them carefully; their current behavior is not suitable for production code.
 
 ## Running an Exercise
 
@@ -84,8 +90,12 @@ exercises/
 │   ├── reverseArray.c
 │   └── swap.c
 └── Section-3-Memory-Management/
+    ├── dangling_pointer.c
+    ├── double_free.c
+    ├── dynamic_2D_array.c
     ├── dynamic_array.c
     ├── dynamic_memory.c
+    ├── memory_leak.c
     └── resize_dynamic_array.c
 ```
 
@@ -100,13 +110,16 @@ exercises/
 - [x] Heap allocation with `malloc` and `calloc`
 - [x] Resizing allocations with `realloc`
 - [x] Releasing heap memory with `free`
+- [x] Dynamically allocated two-dimensional arrays
+- [x] Recognizing dangling pointers, use-after-free, double-free, and memory leaks
 
 ## Suggested Next Steps
 
 - Add input validation and error handling for interactive programs.
-- Check allocation results before dereferencing dynamically allocated memory.
+- Check every allocation result before dereferencing dynamically allocated memory.
 - Separate reusable declarations into header files instead of including `.c` files directly.
 - Add automated tests and compiler warning flags such as `-Wall -Wextra -Wpedantic`.
+- Use runtime memory diagnostics, such as Clang's AddressSanitizer, when experimenting with allocation and cleanup.
 - Continue with structures, file I/O, and multi-file C programs.
 
 ## Notes
