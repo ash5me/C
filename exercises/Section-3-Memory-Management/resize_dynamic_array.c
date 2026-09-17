@@ -20,13 +20,31 @@ int *create_zeroed_array(int size) {
     return arr;
 }
 
-int main() {
-    int *numbers = create_zeroed_array(5);
-    for (int i = 0; i < 5; i++) {
-        printf("%d ", numbers[i]);
+void use_array(int *arr, int size) {
+    for (int i = 0; i < size; i++) {
+        printf(" %d",*(arr + i));
     }
+}
+
+int main() {
+    int *numbers = create_array(5);
+
+    for (int i = 0; i < 5; i++) {
+        numbers[i] = (i + 1) * 10;
+    }
+
+    use_array(numbers,5);
+
     free(numbers);
 }
+
+// int main() {
+//     int *numbers = create_zeroed_array(5);
+//     for (int i = 0; i < 5; i++) {
+//         printf("%d ", numbers[i]);
+//     }
+//     free(numbers);
+// }
 
 // int main() {
 //     int *numbers = create_array(3);
