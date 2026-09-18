@@ -19,6 +19,11 @@ Player *create_player(int id, int health, int mana) {
     return ptr;
 }
 
+void destroy_player(Player **player) {
+    free(*player);
+    *player = NULL;
+}
+
 int main() {
     Player *player = create_player(1, 100, 50);
     if (player == NULL) {
@@ -27,8 +32,8 @@ int main() {
     printf("ID: %d\n", player->id);
     printf("Health: %d\n", player->health);
     printf("Mana: %d\n", player->mana);
-
-    free(player);
-
+    destroy_player(&player);
+    printf("%p\n", (void *)player);
+    // free(player);
     return 0;
 }
