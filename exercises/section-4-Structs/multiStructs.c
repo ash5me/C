@@ -1,6 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/*
+Expected Outcome : 
+Player 1: Id:0 Health=100 Mana=50
+Player 2: Id:0 Health=100 Mana=50
+Player 3: Id:0 Health=100 Mana=50
+*/
+
 typedef struct {
     int id;
     int health;
@@ -51,3 +58,4 @@ int main() {
 
     return 0;
 }
+
