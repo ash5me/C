@@ -53,22 +53,33 @@ Item *inventory_find(Inventory *inventory, const char *name) {
     return NULL;
 }
 
+void inventory_print(const Inventory *inventory) {
+    for (int i = 0; i < inventory->count; i++) {
+        Item *item = &inventory->items[i];
+        printf("%d",*item);
+    }
+}
+
+// int main() {
+//     const Inventory *inventory;
+
+//     inventory_add(&inventory, "Health Potion", 3, 0.5f);
+//     inventory_add(&inventory, "Iron Sword", 1, 4.0f);
+//     inventory_add(&inventory, "Shield", 1, 6.0f);
+
+//     inventory_find(&inventory,&inventory->items->name);
+// }
+
 int main() {
     Inventory inventory;
-    
     inventory_init(&inventory);
-
     inventory_add(&inventory, "Health Potion", 3, 0.5f);
     inventory_add(&inventory, "Iron Sword", 1, 4.0f);
     inventory_add(&inventory, "Shield", 1, 6.0f);
-    
     inventory_remove(&inventory, 1);
-
     Item *item = inventory_find(&inventory, "Shield");
     if (item != NULL) {
     printf("%s: %d\n", item->name, item->quantity);
     }
-
     printf("Count: %zu\n", inventory.count);
-    
 }

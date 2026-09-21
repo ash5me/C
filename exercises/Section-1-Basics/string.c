@@ -24,7 +24,7 @@ void my_strcpy(char *destination, const char *source) {
     *destination = *source;
 }
 
-bool my_strcmp(char *str1, char *str2) {
+bool my_strcmp(const char *str1, const char *str2) {
 
     while (*str1 != '\0' && *str2 != '\0') {
         // Either the strings differ, or both reach '\0'.
@@ -35,7 +35,7 @@ bool my_strcmp(char *str1, char *str2) {
         str2++;
     }
 
-    return *str1 == '\0' && *str2 == '0';
+    return *str1 == '\0' && *str2 == '\0';
     
 }
 
