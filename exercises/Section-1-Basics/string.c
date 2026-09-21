@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
+#include "../include/string.h"
 
 
 int my_strlen(const char *str) {
@@ -38,13 +39,13 @@ bool my_strcmp(char *str1, char *str2) {
     
 }
 
-int main() {
-    char firstName[] = ("Ashok");
-    char secondName[] = ("Ashxo");
-    bool compare = my_strcmp(firstName,secondName);
-    printf("Compared result : %d\n", compare);
-    return 0;
-}
+// int main() {
+//     char firstName[] = ("Ashok");
+//     char secondName[] = ("Ashxo");
+//     bool compare = my_strcmp(firstName,secondName);
+//     printf("Compared result : %d\n", compare);
+//     return 0;
+// }
 
 // int main() {
 //     char source[] = "Hello";
