@@ -67,10 +67,8 @@ bool spellbook_add(SpellBook *book, const char *name, int mana_cost, int cooldow
  * matching Spell, or NULL if nothing matches.
  * ------------------------------------------------------------------- */
 Spell *spellbook_find(SpellBook *book, const char *name) {
-    // TODO: implement
-    //(void)book; (void)name;
     for (size_t i = 0; i < book->count; i++) {
-        if(my_strcmp(book->spells[i].name, name) == 0) {
+        if(my_strcmp(book->spells[i].name, name)) {
             return &book->spells[i];
         }
     }
@@ -104,7 +102,7 @@ bool spellbook_remove(SpellBook *book, size_t index) {
  * ------------------------------------------------------------------- */
 void spellbook_learn(SpellBook *book, const char *name, int mana_cost, int cooldown, int bonus) {
     for (size_t i = 0; i < book->count; i++) {
-        if (my_strcmp(book->spells[i].name, name) == 0) {
+        if (my_strcmp(book->spells[i].name, name)) {
             printf("Nothing found");
             book->spells[i].mana_cost += bonus;
             return;
@@ -119,8 +117,6 @@ void spellbook_learn(SpellBook *book, const char *name, int mana_cost, int coold
  * Sum mana_cost across every known spell.
  * ------------------------------------------------------------------- */
 int spellbook_total_mana(const SpellBook *book) {
-    // TODO: implement
-    //(void)book;
     int sum = 0;
     for (size_t i =0; i < book->count; i++) {
         sum += book->spells[i].mana_cost;
@@ -158,7 +154,7 @@ int main(void) {
 
     CHECK(spellbook_remove(&book, 0) == true, "remove index 0 (Fireball) succeeds");
     CHECK(book.count == 2, "count is 2 after remove");
-    CHECK(strcmp(book.spells[0].name, "Ice Lance") == 0, "swap-remove moved last spell into slot 0");
+    CHECK(my_strcmp(book.spells[0].name, "Ice Lance"), "swap-remove moved last spell into slot 0");
 
     spellbook_learn(&book, "Heal", 15, 1, 5);
     CHECK(book.count == 2, "learning an existing spell doesn't add a duplicate");
