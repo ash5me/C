@@ -21,6 +21,9 @@ void inventory_init(Inventory *inventory) {
 
 //add
 void inventory_add(Inventory *inventory, const char *name, int quantity, float weight) {
+    if (inventory->count >= 20) {
+        return;
+    }
     Item *item = &inventory->items[inventory->count];
     
     my_strcpy(item->name, name);
@@ -54,32 +57,37 @@ Item *inventory_find(Inventory *inventory, const char *name) {
 }
 
 void inventory_print(const Inventory *inventory) {
-    for (int i = 0; i < inventory->count; i++) {
-        Item *item = &inventory->items[i];
-        printf("%d",*item);
+    for (size_t i = 0; i < inventory->count; i++) {
+       const Item *item = &inventory->items[i];
+        printf("Item : %s\n",item->name);
+        printf("Quantity : %d\n",item->quantity);
+        printf("Weight : %.1f\n",item->weight);
     }
 }
 
-// int main() {
-//     const Inventory *inventory;
-
-//     inventory_add(&inventory, "Health Potion", 3, 0.5f);
-//     inventory_add(&inventory, "Iron Sword", 1, 4.0f);
-//     inventory_add(&inventory, "Shield", 1, 6.0f);
-
-//     inventory_find(&inventory,&inventory->items->name);
-// }
-
 int main() {
+    printf("Program started!\n");
     Inventory inventory;
+
     inventory_init(&inventory);
+
     inventory_add(&inventory, "Health Potion", 3, 0.5f);
     inventory_add(&inventory, "Iron Sword", 1, 4.0f);
     inventory_add(&inventory, "Shield", 1, 6.0f);
-    inventory_remove(&inventory, 1);
-    Item *item = inventory_find(&inventory, "Shield");
-    if (item != NULL) {
-    printf("%s: %d\n", item->name, item->quantity);
-    }
-    printf("Count: %zu\n", inventory.count);
+
+    inventory_print(&inventory);
 }
+
+// int main() {
+//     Inventory inventory;
+//     inventory_init(&inventory);
+//     inventory_add(&inventory, "Health Potion", 3, 0.5f);
+//     inventory_add(&inventory, "Iron Sword", 1, 4.0f);
+//     inventory_add(&inventory, "Shield", 1, 6.0f);
+//     inventory_remove(&inventory, 1);
+//     Item *item = inventory_find(&inventory, "Shield");
+//     if (item != NULL) {
+//     printf("%s: %d\n", item->name, item->quantity);
+//     }
+//     printf("Count: %zu\n", inventory.count);
+// }
