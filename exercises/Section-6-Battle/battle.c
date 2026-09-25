@@ -38,20 +38,17 @@ int character_is_alive(const Character *character) {
     return character->health > 0;
 }
 
-int main() {
-    Character hero = {"Ash",70,100,6,10};
-    Character enemy = {"Goblin", 50, 50, 3, 7};
-
-    character_heal(&hero,95);
-    printf("Current health : %d\n", hero.health);
-
-    character_attack(&hero,&enemy);
-    printf("Current defender's health : %d\n", enemy.health);
-
-    if(character_is_alive(&hero)) {
-        printf("Character is alive %s\n", hero.name);
-    } else {
-        printf("Character is dead! %s\n", hero.name);
-    }
-    return 0;
-}
+// int main() {
+//     Character hero = {"Ash",70,100,6,10};
+//     Character enemy = {"Goblin", 50, 50, 3, 7};
+//     character_heal(&hero,95);
+//     printf("Current health : %d\n", hero.health);
+//     character_attack(&hero,&enemy);
+//     printf("Current defender's health : %d\n", enemy.health);
+//     if(character_is_alive(&hero)) {
+//         printf("Character is alive %s\n", hero.name);
+//     } else {
+//         printf("Character is dead! %s\n", hero.name);
+//     }
+//     return 0;
+// }
