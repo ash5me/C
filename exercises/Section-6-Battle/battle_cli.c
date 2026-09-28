@@ -1,15 +1,17 @@
-#include <stdio.h>
-#include "../include/battle.h"
-#include <limits.h>
-#include <errno.h>
 #include <ctype.h>
+#include <errno.h>
+#include <limits.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include "../include/battle.h"
+
 
 int main() {
     Character hero = {"Ash", 100, 100, 15, 5};
     Character enemy = {"Goblin", 60, 60, 10, 3};
     while (character_is_alive(&hero) && character_is_alive(&enemy)) {
 
-    int choice;
+    int choice = 0;
     char buffer[128];
 
     // print menu
@@ -28,7 +30,7 @@ int main() {
             end == buffer || 
             (*end != '\n' && *end != '\0' && !isspace((unsigned char)*end))) {
             printf("Invalid integer. Please try again: ");
-            continue;
+            return 0;
         }
 
         choice = (int)val;
