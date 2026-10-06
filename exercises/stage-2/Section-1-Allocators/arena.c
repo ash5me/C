@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdalign.h>
 
 typedef struct {
     unsigned char *memory;
@@ -88,5 +89,12 @@ int main() {
     for (int i=0; i<10; i++) {
         numbers[i] = i * 10;
     }
+
+    arena_alloc(&arena, 3);
+
+    double *values = arena_alloc_aligned(&arena, sizeof(double) * 5, _Alignof(double));
+    printf("Address: %p\n", (void *)values);
+    printf("Double offset: %zu\n", (unsigned char *)values - arena.memory);
+    
     free(arena.memory);
 }
