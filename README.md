@@ -4,6 +4,8 @@
 
 The repository is organized as a learning path rather than a collection of unrelated examples. Each stage builds on concepts introduced earlier and gradually moves toward systems programming and game-development-oriented programming.
 
+This repository is intended for hands-on practice: each exercise is small, focused, and designed to be compiled and run independently so the learner can observe the effect of memory and pointer usage directly.
+
 ---
 
 ## Learning Progress
@@ -11,8 +13,24 @@ The repository is organized as a learning path rather than a collection of unrel
 | Stage                   | Area                                                                  | Status         |
 | :---------------------- | :-------------------------------------------------------------------- | :------------- |
 | **Stage 1**             | C Fundamentals, Pointers, Memory, Structs & Practical Data Structures | ✅ Complete     |
-| **Stage 2 — Section 1** | Custom Allocators                                                     | 🚧 In Progress |
+| **Stage 2 — Section 1** | Custom Allocators                                                     | ✅ Available    |
 | **Stage 2 — Remaining** | Computer & Memory Fundamentals, Systems Programming                   | ⏳ Upcoming     |
+
+## Current Repository Snapshot
+
+This repository currently contains a complete Stage 1 track and the first Stage 2 allocator exercises.
+
+The practical learning focus is:
+
+* Stage 1: core C language, pointers, allocation, structs, collections, and game logic
+* Stage 2 Section 1: custom allocator design and low-level memory management
+
+Current Stage 2 allocator files:
+
+* `exercises/stage-2/Section-1-Allocators/arena.c` — a bump allocator that advances a single offset and supports aligned allocation
+* `exercises/stage-2/Section-1-Allocators/pool.c` — a fixed-size block pool backed by a free list
+
+These examples are intentionally small, self-contained, and designed to be compiled and run individually while learning the memory model behind allocator behavior.
 
 ### Stage 1 Progress
 
@@ -24,6 +42,8 @@ The repository is organized as a learning path rather than a collection of unrel
 | Section 4 — Structs           |     2     | ✅ Complete |
 | Section 5 — Inventory         |     2     | ✅ Complete |
 | Section 6 — Battle            |     2     | ✅ Complete |
+
+The Stage 1 exercises establish the foundations for later allocator work: variable lifetimes, ownership, pointer behavior, heap allocation, and structured data.
 
 ```text
 Stage 1
